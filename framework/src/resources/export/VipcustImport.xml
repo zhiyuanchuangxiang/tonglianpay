@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="GB2312"?>
+<workbook>
+
+	<sheet desc="VIP客户资料">
+		<header isshow="true" height="300">
+			<cell
+				name="USECUST_ID"
+				desc="客户标识"
+				type="1"
+				align="1"
+				width="4000"
+			/>
+			<cell
+				name="USECUST_NAME"
+				desc="客户名称"
+				type="1"
+				align="1"
+				width="6000"
+			/>
+			<cell
+				name="SERIAL_NUMBER"
+				desc="服务号码"
+				type="1"
+				align="1"
+				width="3000"
+			/>
+			<cell
+				name="VIP_TYPE_CODE"
+				desc="VIP类型"
+				type="1"
+				align="1"
+				width="3000"
+			/>
+			<cell
+				name="VIP_CLASS_ID"
+				desc="VIP等级"
+				type="1"
+				align="1"
+				width="4000"
+			/>
+			<cell
+				name="JOIN_DATE"
+				desc="加入时间"
+				type="1"
+				align="2"
+				width="4000"
+			/>
+			<cell
+				name="USEPSPT_ID"
+				desc="证件号码"
+				type="1"
+				align="1"
+				width="4000"
+			/>
+			<cell
+				name="CREDIT_VALUE"
+				desc="信用度"
+				type="1"
+				align="1"
+				width="2000"
+			/>
+			<cell
+				name="CUST_MANAGER_ID"
+				desc="客户经理"
+				type="1"
+				align="1"
+				width="3000"
+			/>
+			<cell
+				name="IMPORT_ERROR"
+				desc="导入错误"
+				type="1"
+				align="1"
+				width="10000"
+			/>
+		</header>
+	</sheet>
+	
+</workbook>

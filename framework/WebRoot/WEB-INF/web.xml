@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+  <display-name></display-name>	
+  <jsp-config>
+	     <taglib>
+	
+	        <taglib-uri>/zycxtag</taglib-uri>
+	
+	        <taglib-location>/WEB-INF/tag/zycxTag.tld</taglib-location>
+	
+		</taglib>
+	</jsp-config>
+  <!-- 启动参数配置 -->
+  <context-param>
+	    <param-name>webAppRootKey</param-name>
+	    <param-value>framework</param-value>
+  </context-param>
+  
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath:resources/spring/applicationContext.xml,classpath:resources/spring/applicationContext_*.xml</param-value>
+  </context-param>
+  
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  
+  
+  <!-- struts filter config -->
+  <filter>
+    <filter-name>struts2</filter-name>
+    <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+    <init-param>
+      <param-name>config</param-name>
+      <param-value>struts-default.xml,struts-plugin.xml,resources/struts/struts.xml</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>struts2</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <!-- druid filter -->
+  <filter>
+	    <filter-name>DruidWebStatFilter</filter-name>
+	    <filter-class>com.alibaba.druid.support.http.WebStatFilter</filter-class>
+	    <init-param>
+	        <param-name>exclusions</param-name>
+	        <param-value>*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*</param-value>
+	    </init-param>
+	    
+	    <init-param>
+		    <param-name>profileEnable</param-name>
+		    <param-value>true</param-value>
+		</init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>DruidWebStatFilter</filter-name>
+    <url-pattern>/druid/*</url-pattern>
+  </filter-mapping>
+  
+  
+  	<!-- druid servlet -->
+	<servlet>
+		<servlet-name>DruidStatView</servlet-name>
+		<servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DruidStatView</servlet-name>
+		<url-pattern>/druid/*</url-pattern>
+	</servlet-mapping> 
+	
+	 
+</web-app>
